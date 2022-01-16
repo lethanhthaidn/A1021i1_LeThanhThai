@@ -1,6 +1,8 @@
-package ss6_Inheritance.thuc_hanh;
+package ss7_Abtract_Interface.bai_tap;
 
-public class Rectangle extends Shape {
+import ss6_Inheritance.thuc_hanh.Shape;
+
+public class Rectangle extends Shape implements Resizeable{
     private double width = 1.0;
     private double length = 1.0;
 
@@ -18,7 +20,7 @@ public class Rectangle extends Shape {
         this.length = length;
     }
 
-    public double getWidth() {
+    public double getWidth(double side) {
         return width;
     }
 
@@ -26,7 +28,7 @@ public class Rectangle extends Shape {
         this.width = width;
     }
 
-    public double getLength() {
+    public double getLength(double side) {
         return length;
     }
 
@@ -49,5 +51,11 @@ public class Rectangle extends Shape {
                 ", length=" + length +
                 '}'
                 + super.toString();
+    }
+
+    @Override
+    public void resize(double percent) {
+        width*= percent/100;
+        length*= percent/100;
     }
 }

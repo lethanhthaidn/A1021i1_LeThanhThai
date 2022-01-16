@@ -1,8 +1,8 @@
-package ss6_Inheritance.thuc_hanh;
+package ss7_Abtract_Interface.bai_tap;
 
-public class Square extends Rectangle {
-    private double side = 1.0;
+import ss6_Inheritance.thuc_hanh.Rectangle;
 
+public class Square extends Rectangle implements Resizeable{
     public Square() {
     }
 
@@ -18,7 +18,6 @@ public class Square extends Rectangle {
         setWidth(side);
         setLength(side);
     }
-
     public double getSide() {
         return getWidth();
     }
@@ -28,4 +27,11 @@ public class Square extends Rectangle {
     public String toString() {
         return "A Square with side=" + getSide() + "which is a subclass of " + super.toString();
     }
+
+    @Override
+    public void resize(double percent) {
+        setSide(getSide()*percent/100);
+    }
 }
+
+
