@@ -4,6 +4,8 @@ import ss8_CleanCode.mvc.model.model.Student;
 
 public interface IStudentRepository {
     Student[] getAll();
-    Student[] add();
 
+    void add(Student student);
+
+    void delete(int codeStudent);
 }

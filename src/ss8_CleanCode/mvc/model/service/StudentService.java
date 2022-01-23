@@ -14,8 +14,6 @@ public class StudentService implements IStudentService {
 
     @Override
     public void add() {
-
-
         System.out.println("code: ");
         int code = Integer.parseInt(scanner.nextLine());
         System.out.println("name: ");
@@ -25,16 +23,33 @@ public class StudentService implements IStudentService {
         System.out.println("point: ");
         double point = Double.parseDouble(scanner.nextLine());
 
-        Student[] students = iStudentRepository.add();
-        students[3] =new Student(code, name, date, point);
-
+        Student newStudent = new Student(code, name, date, point);
+        iStudentRepository.add(newStudent);
     }
 
     @Override
     public void delete() {
+        System.out.println("Nhap code hs muon xoa: ");
+        int newCode = Integer.parseInt(scanner.nextLine());
+        iStudentRepository.delete(newCode);
+//        int length = students.length;
+//        for (int i = 0; i < students.length; i++) {
+//            int tempt = students[i].getCodeStudent();
+//            if (students[i].getCodeStudent() == newCode) {
+//                students[i] = nmmull;
+//                break;
+//            }
+//        }
+//        System.out.println("Dsach sau khi xoa: ");
+//        Student[] students = iStudentRepository.getAll();
+//        for (int i = 0; i < students.length; i++) {
+//            if (students[i] != null) {
+//                System.out.println(students[i]);
+//            }
+//
+//        }
 
     }
-
     @Override
     public void display() {
         Student[] students = iStudentRepository.getAll();
