@@ -11,11 +11,11 @@ public class MyList<E> {
         elements = new Object[DEFAULT_CAPACITY];
     }
 
-    public void add(E e) {
+    public void add(E element) {
         if (size == elements.length) {
             ensureCapa();
         }
-        elements[size++] = e;
+        elements[size++] = element;
     }
 
     public void ensureCapa() {
@@ -29,4 +29,5 @@ public class MyList<E> {
         }
         return (E) elements[i];
     }
+
 }
