@@ -40,10 +40,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
-                ", price=" + price +
-                '}';
+        return String.format("%s,%s,%s", id, name, price);
     }
 }

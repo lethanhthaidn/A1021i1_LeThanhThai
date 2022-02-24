@@ -1,5 +1,8 @@
 package ss12_Java_Colection_Framework.Bai_tap;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -60,6 +63,7 @@ public class Test {
         Product product = new Product(name, id, price);
 
         productService.add(product);
+
         System.out.println("Them thanh cong!");
     }
 
@@ -103,4 +107,5 @@ public class Test {
         Product product = productService.search(name);
         System.out.println("Name: " + product.getName() + ", Id: " + product.getId() + ", Price: " + product.getPrice());
     }
+
 }

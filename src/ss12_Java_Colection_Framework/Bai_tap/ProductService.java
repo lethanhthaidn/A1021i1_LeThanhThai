@@ -1,5 +1,6 @@
 package ss12_Java_Colection_Framework.Bai_tap;
 
+import java.io.*;
 import java.util.ArrayList;
 
 public class ProductService {
@@ -13,6 +14,7 @@ public class ProductService {
 
     void add(Product product) {
         products.add(product);
+        fileWriter();
     }
 
     public ArrayList<Product> getAll() {
@@ -46,5 +48,32 @@ public class ProductService {
                 return product;
         }
         return null;
+    }
+
+    public void fileWriter() {
+
+        File file = new File("product.csv");
+
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, false));
+            for (int i = 0; i < products.size(); i++) {
+                bufferedWriter.write(products.get(i).toString());
+                bufferedWriter.newLine();
+            }
+
+            bufferedWriter.close();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+//        try (FileWriter fileWriter = new FileWriter(file, true);){
+//            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+//            String tmp= product.toString();
+//            bufferedWriter.write(tmp);
+////            fileWriter.write(tmp);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 }
